@@ -1,6 +1,4 @@
-﻿using Workflow.Domain.Enums;
-
-namespace Workflow.Domain
+﻿namespace Workflow.Domain
 {
     public sealed class Tasks
     {
@@ -10,7 +8,7 @@ namespace Workflow.Domain
         public int StateCode { get; private set; }
         public int PriorityCode { get; private set; }
 
-        public Tasks(string name, string description, int priorityCode)
+        public Tasks(string name, string description, int stateCode, int priorityCode)
         {
             _ValidateName(name);
             _ValidateDescription(description);
@@ -18,7 +16,7 @@ namespace Workflow.Domain
             Id = Guid.NewGuid();
             Name = name.Trim();
             Description = description.Trim();
-            StateCode = (int)EnumState.NotStarded;
+            StateCode = stateCode;
             PriorityCode = priorityCode;
         }
 
@@ -30,7 +28,7 @@ namespace Workflow.Domain
             Id = id;
             Name = name.Trim();
             Description = description.Trim();
-            PriorityCode = stateCode;
+            StateCode = stateCode;
             PriorityCode = priorityCode;
         }
 
@@ -41,6 +39,16 @@ namespace Workflow.Domain
 
             Name = name.Trim();
             Description = description.Trim();
+        }
+
+        public void ChangeState(State state)
+        {
+            StateCode = state.Code;
+        }
+
+        public void ChangePriority(Priority priority)
+        {
+            PriorityCode = priority.Code;
         }
 
         private void _ValidateName(string name)
