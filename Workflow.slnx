@@ -1,1 +1,8 @@
-<Solution />
+<Solution>
+  <Folder Name="/1. Domain/">
+    <Project Path="Workflow.Domain/Workflow.Domain.csproj" />
+  </Folder>
+  <Folder Name="/2. Application/">
+    <Project Path="Workflow.Application/Workflow.Application.csproj" />
+  </Folder>
+</Solution>
