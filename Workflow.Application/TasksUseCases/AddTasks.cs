@@ -4,7 +4,7 @@ using Workflow.Domain;
 
 namespace Workflow.Application.TasksUseCases
 {
-    public class AddTasks
+    public sealed class AddTasks
     {
         private readonly IRepository<Tasks, Guid> _repository;
 
