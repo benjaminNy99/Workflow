@@ -5,9 +5,9 @@ namespace Workflow.Application.TasksUseCases
 {
     public sealed class DeleteTasks
     {
-        private readonly IRepository<Tasks, Guid> _repository;
+        private readonly IRepository<TasksEntity, Guid> _repository;
 
-        public DeleteTasks(IRepository<Tasks, Guid> repository)
+        public DeleteTasks(IRepository<TasksEntity, Guid> repository)
         {
             _repository = repository;
         }

@@ -11,7 +11,7 @@ namespace Workflow.Application.TasksUseCases
             _repository = repository;
         }
 
-        public async Task<IEnumerable<Tasks>> ExecuteAsync(Priority priority)
+        public async Task<IEnumerable<TasksEntity>> ExecuteAsync(PriorityEntity priority)
         {
             return await _repository.GetAllAsync(priority);
         }

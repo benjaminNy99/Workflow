@@ -5,14 +5,14 @@ namespace Workflow.Application.StateUseCades
 {
     public sealed class GetStateByCode
     {
-        private readonly ICodeRepository<State> _repository;
+        private readonly ICodeRepository<StateEntity> _repository;
 
-        public GetStateByCode(ICodeRepository<State> repository)
+        public GetStateByCode(ICodeRepository<StateEntity> repository)
         {
             _repository = repository;
         }
 
-        public async Task<State?> Execute(int code)
+        public async Task<StateEntity?> Execute(int code)
         {
             return await _repository.GetAsync(code);
         }

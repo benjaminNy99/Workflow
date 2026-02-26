@@ -6,25 +6,25 @@ namespace Workflow.Application.TasksUseCases
 {
     public sealed class AddTasks
     {
-        private readonly IRepository<Tasks, Guid> _repository;
+        private readonly IRepository<TasksEntity, Guid> _repository;
 
-        public AddTasks(IRepository<Tasks, Guid> repository)
+        public AddTasks(IRepository<TasksEntity, Guid> repository)
         {
             _repository = repository;
         }
 
-        public async Task<Tasks> ExecuteAsunc(TasksDto dto)
+        public async Task<TasksEntity> ExecuteAsunc(TasksDto dto)
         {
-            Tasks tasks;
+            TasksEntity tasks;
             if (dto.Id.HasValue)
-                tasks = new Tasks(
+                tasks = new TasksEntity(
                     dto.Id.Value,
                     dto.Name,
                     dto.Description,
                     dto.StateCode,
                     dto.PriorityCode);
             else
-                tasks = new Tasks(
+                tasks = new TasksEntity(
                     dto.Name,
                     dto.Description,
                     dto.StateCode,

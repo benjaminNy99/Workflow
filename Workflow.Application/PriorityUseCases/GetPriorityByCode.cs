@@ -5,14 +5,14 @@ namespace Workflow.Application.PriorityUseCase
 {
     public sealed class GetPriorityByCode
     {
-        private ICodeRepository<Priority> _repository;
+        private ICodeRepository<PriorityEntity> _repository;
 
-        public GetPriorityByCode(ICodeRepository<Priority> repository)
+        public GetPriorityByCode(ICodeRepository<PriorityEntity> repository)
         {
             _repository = repository;
         }
 
-        public async Task<Priority?> ExecuteAsync(int code)
+        public async Task<PriorityEntity?> ExecuteAsync(int code)
         {
             return await _repository.GetAsync(code);
         }

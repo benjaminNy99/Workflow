@@ -8,4 +8,5 @@
   <Folder Name="/3. Infrastructure/">
     <Project Path="Workflow.Infrastructure.Data/Workflow.Infrastructure.Data.csproj" Id="8ea1a629-057a-4486-ad03-04b8e5ecfb18" />
   </Folder>
+  <Folder Name="/4. Clients/" />
 </Solution>

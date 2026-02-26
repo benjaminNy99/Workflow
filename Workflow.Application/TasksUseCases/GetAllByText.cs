@@ -5,16 +5,16 @@ namespace Workflow.Application.TasksUseCases
 {
     public sealed class GetAllByText
     {
-        private readonly ITextRepository<Tasks> _repository;
+        private readonly ITextRepository<TasksEntity> _repository;
 
-        public GetAllByText(Services.ITextRepository<Tasks> repository)
+        public GetAllByText(Services.ITextRepository<TasksEntity> repository)
         {
             _repository = repository;
         }
 
-        public async Task<IEnumerable<Tasks>> ExecuteAsync(string text)
+        public async Task<IEnumerable<TasksEntity>> ExecuteAsync(string text)
         {
-            if (string.IsNullOrEmpty(text)) return Enumerable.Empty<Tasks>();
+            if (string.IsNullOrEmpty(text)) return Enumerable.Empty<TasksEntity>();
 
             return _repository.GetAllAsync(text);
         }

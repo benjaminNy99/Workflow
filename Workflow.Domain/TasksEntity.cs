@@ -1,6 +1,6 @@
 ﻿namespace Workflow.Domain
 {
-    public sealed class Tasks
+    public sealed class TasksEntity
     {
         public readonly Guid Id;
         public string Name { get; private set; } = null!;
@@ -8,7 +8,7 @@
         public int StateCode { get; private set; }
         public int PriorityCode { get; private set; }
 
-        public Tasks(string name, string description, int stateCode, int priorityCode)
+        public TasksEntity(string name, string description, int stateCode, int priorityCode)
         {
             _ValidateName(name);
             _ValidateDescription(description);
@@ -20,7 +20,7 @@
             PriorityCode = priorityCode;
         }
 
-        public Tasks(Guid id, string name, string description, int stateCode, int priorityCode)
+        public TasksEntity(Guid id, string name, string description, int stateCode, int priorityCode)
         {
             _ValidateName(name);
             _ValidateDescription(description);
@@ -41,12 +41,12 @@
             Description = description.Trim();
         }
 
-        public void ChangeState(State state)
+        public void ChangeState(StateEntity state)
         {
             StateCode = state.Code;
         }
 
-        public void ChangePriority(Priority priority)
+        public void ChangePriority(PriorityEntity priority)
         {
             PriorityCode = priority.Code;
         }

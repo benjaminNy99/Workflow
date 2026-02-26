@@ -5,7 +5,7 @@ namespace Workflow.Infrastructure.Data.Models;
 
 public partial class Tasks
 {
-    public string Id { get; set; } = null!;
+    public Guid Id { get; set; }
 
     public string Name { get; set; } = null!;
 
