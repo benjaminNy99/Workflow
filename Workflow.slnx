@@ -5,4 +5,7 @@
   <Folder Name="/2. Application/">
     <Project Path="Workflow.Application/Workflow.Application.csproj" />
   </Folder>
+  <Folder Name="/3. Infrastructure/">
+    <Project Path="Workflow.Infrastructure.Data/Workflow.Infrastructure.Data.csproj" Id="8ea1a629-057a-4486-ad03-04b8e5ecfb18" />
+  </Folder>
 </Solution>
