@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +22,11 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Workflow.Application\Workflow.Application.csproj" />
+    <ProjectReference Include="..\Workflow.Domain\Workflow.Domain.csproj" />
   </ItemGroup>
 
 </Project>
