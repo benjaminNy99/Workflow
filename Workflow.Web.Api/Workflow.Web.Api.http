@@ -1,6 +1,6 @@
 @Workflow.Web.Api_HostAddress = http://localhost:5278
 
-GET {{Workflow.Web.Api_HostAddress}}/weatherforecast/
+GET {{Workflow.Web.Api_HostAddress}}/api/taks/00000000-0000-0000-0000-000000000000
 Accept: application/json
 
 ###
