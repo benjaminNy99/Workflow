@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Workflow.Application.Services;
 using Workflow.Application.TasksUseCases;
-using Workflow.Domain;
 using Workflow.Infrastructure.Data;
 using Workflow.Infrastructure.Data.Models;
 using Workflow.Web.Api.Endpoints;
@@ -17,6 +15,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddRepository();
 builder.Services.AddCodeRepository();
 builder.Services.AddScoped<GetTasksById>();
+builder.Services.AddScoped<AddTasks>();
 
 var app = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿using Workflow.Application.DTOs.Tasks;
+﻿using Workflow.Application.DTOs.TasksDtos;
 using Workflow.Application.Services;
 using Workflow.Domain;
 
@@ -13,24 +13,16 @@ namespace Workflow.Application.TasksUseCases
             _repository = repository;
         }
 
-        public async Task<TasksEntity> ExecuteAsunc(TasksDto dto)
+        public async Task<TasksEntity> ExecuteAsunc(AddTasksDto dto)
         {
-            TasksEntity tasks;
-            if (dto.Id.HasValue)
-                tasks = new TasksEntity(
-                    dto.Id.Value,
-                    dto.Name,
-                    dto.Description,
-                    dto.StateCode,
-                    dto.PriorityCode);
-            else
-                tasks = new TasksEntity(
-                    dto.Name,
-                    dto.Description,
-                    dto.StateCode,
-                    dto.PriorityCode);
+            TasksEntity tasks = new TasksEntity(
+                dto.Name,
+                dto.Description,
+                dto.StateCode,
+                dto.PriorityCode);
 
             await _repository.AddAsync(tasks);
+            await _repository.SaveChangesAsync();
             return tasks;
         }
     }

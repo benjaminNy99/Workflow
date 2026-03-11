@@ -1,8 +1,7 @@
-﻿namespace Workflow.Application.DTOs.Tasks
+﻿namespace Workflow.Application.DTOs.TasksDtos
 {
-    public class TasksDto
+    public class AddTasksDto
     {
-        public Guid Id { get; set; }
         public string Name { get; set; } = null!;
         public string Description { get; set; } = null!;
         public int StateCode { get; set; }

@@ -60,5 +60,10 @@ namespace Workflow.Infrastructure.Data.Repositories
                 .Select(TasksMappings.ToDomain)
                 .SingleOrDefaultAsync();
         }
+
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }
