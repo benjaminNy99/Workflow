@@ -15,6 +15,13 @@ namespace Workflow.Infrastructure.Data.Repositories
             _context = context;
         }
 
+        public async Task<IEnumerable<StateEntity>> GetAllAsync()
+        {
+            return await _context.State
+                .Select(StateMappings.ToDomain)
+                .ToListAsync();
+        }
+
         public async Task<StateEntity?> GetAsync(int code)
         {
             return await _context.State

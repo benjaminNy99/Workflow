@@ -1,5 +1,9 @@
 @Workflow.Web.Api_HostAddress = http://localhost:5278
 
+GET {{Workflow.Web.Api_HostAddress}}/api/priority
+Accept: application/json
+
+###
 GET {{Workflow.Web.Api_HostAddress}}/api/tasks/00000000-0000-0000-0000-000000000000
 Accept: application/json
 

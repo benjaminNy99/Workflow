@@ -15,6 +15,13 @@ namespace Workflow.Infrastructure.Data.Repositories
             _context = context;
         }
 
+        public async Task<IEnumerable<PriorityEntity>> GetAllAsync()
+        {
+            return await _context.Priority
+                .Select(PriorityMappings.ToDomain)
+                .ToListAsync();
+        }
+
         public async Task<PriorityEntity?> GetAsync(int code)
         {
             return await _context.Priority

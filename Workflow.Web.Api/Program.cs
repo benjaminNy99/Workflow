@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Workflow.Application.TasksUseCases;
 using Workflow.Infrastructure.Data;
 using Workflow.Infrastructure.Data.Models;
 using Workflow.Web.Api.Endpoints;
@@ -14,19 +13,19 @@ builder.Services.AddDbContext<Context>(options => options.UseSqlite(connectionSt
 builder.Services.AddOpenApi();
 builder.Services.AddRepository();
 builder.Services.AddCodeRepository();
-builder.Services.AddScoped<GetTasksById>();
-builder.Services.AddScoped<AddTasks>();
+builder.Services.AddUseCases();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
+//// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+//    app.MapOpenApi();
+//}
 
 app.UseHttpsRedirection();
 
+app.MapPriorityEndPoints();
 app.MapTasksEndpoints();
 
 app.Run();
