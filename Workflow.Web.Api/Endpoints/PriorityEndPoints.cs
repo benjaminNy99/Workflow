@@ -32,6 +32,7 @@ namespace Workflow.Web.Api.Endpoints
             }).WithName("GetAllPriority")
             .WithDescription("Obtener todas las prioridades")
             .Produces(StatusCodes.Status200OK)
+            .Produces(StatusCodes.Status400BadRequest)
             .Produces(StatusCodes.Status500InternalServerError);
         }
     }

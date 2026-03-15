@@ -29,7 +29,11 @@ namespace Workflow.Web.Api.Endpoints
                 {
                     return Results.InternalServerError(ex.Message);
                 }
-            });
+            }).WithName("GetAllState")
+            .WithDescription("Obtener todos los estados")
+            .Produces(StatusCodes.Status200OK)
+            .Produces(StatusCodes.Status400BadRequest)
+            .Produces(StatusCodes.Status500InternalServerError);
         }
     }
 }
