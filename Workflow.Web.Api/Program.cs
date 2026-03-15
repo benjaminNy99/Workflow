@@ -26,6 +26,7 @@ var app = builder.Build();
 app.UseHttpsRedirection();
 
 app.MapPriorityEndPoints();
+app.MapStateEndPoints();
 app.MapTasksEndpoints();
 
 app.Run();

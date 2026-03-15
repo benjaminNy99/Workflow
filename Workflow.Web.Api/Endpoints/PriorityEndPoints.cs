@@ -1,4 +1,5 @@
-﻿using Workflow.Application.PriorityUseCases;
+﻿using Workflow.Application.DTOs.PriorityDtos;
+using Workflow.Application.PriorityUseCases;
 
 namespace Workflow.Web.Api.Endpoints
 {
@@ -14,7 +15,11 @@ namespace Workflow.Web.Api.Endpoints
                 try
                 {
                     var priorities = await useCase.ExecuteAsync();
-                    return Results.Ok(priorities);
+                    return Results.Ok(priorities.Select(p => new PriorityDto
+                    {
+                        Code = p.Code,
+                        Description = p.Description,
+                    }));
                 }
                 catch (ArgumentException ex)
                 {

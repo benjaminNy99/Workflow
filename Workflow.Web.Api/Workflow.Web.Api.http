@@ -4,7 +4,11 @@ GET {{Workflow.Web.Api_HostAddress}}/api/priority
 Accept: application/json
 
 ###
-GET {{Workflow.Web.Api_HostAddress}}/api/tasks/00000000-0000-0000-0000-000000000000
+GET {{Workflow.Web.Api_HostAddress}}/api/state
+Accept: application/json
+
+###
+GET {{Workflow.Web.Api_HostAddress}}/api/tasks/59BDE736-0471-4BC3-A108-2A815B8AD5B6
 Accept: application/json
 
 ###
