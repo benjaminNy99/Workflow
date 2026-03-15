@@ -35,6 +35,7 @@ namespace Workflow.Infrastructure.Data
             services.AddScoped<GetTasksById>();
             services.AddScoped<AddTasks>();
             services.AddScoped<UpdateTasks>();
+            services.AddScoped<DeleteTasks>();
 
             return services;
         }

@@ -21,6 +21,7 @@ namespace Workflow.Application.TasksUseCases
             }
 
             await _repository.DeleteAsync(tasks);
+            await _repository.SaveChangesAsync();
         }
     }
 }
