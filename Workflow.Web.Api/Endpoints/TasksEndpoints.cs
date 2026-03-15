@@ -37,7 +37,7 @@ namespace Workflow.Web.Api.Endpoints
                 }
                 catch (InvalidOperationException ex)
                 {
-                    return Results.BadRequest(new { error = ex.Message });
+                    return Results.NotFound(new { error = ex.Message });
                 }
                 catch (ArgumentException ex)
                 {
@@ -50,6 +50,33 @@ namespace Workflow.Web.Api.Endpoints
             }).WithName("AddTasks")
             .WithSummary("Crea una nueva tarea")
             .Produces(StatusCodes.Status201Created)
+            .Produces(StatusCodes.Status400BadRequest)
+            .Produces(StatusCodes.Status404NotFound)
+            .Produces(StatusCodes.Status500InternalServerError);
+
+            group.MapPut("/{id:guid}", async (Guid id, UpdateTasksDto dto, UpdateTasks useCase) =>
+            {
+                try
+                {
+                    var tasks = await useCase.ExecuteAsunc(dto, id);
+                    return Results.Ok(tasks);
+                }
+                catch (InvalidOperationException ex)
+                {
+                    return Results.NotFound(new { error = ex.Message });
+                }
+                catch (ArgumentException ex)
+                {
+                    return Results.BadRequest(new { error = ex.Message });
+                }
+                catch (Exception ex)
+                {
+                    return Results.InternalServerError(ex.Message);
+                }
+            }).WithName("UpdateTasks")
+            .WithDescription("Actualiza los datos de una tarea")
+            .Produces(StatusCodes.Status200OK)
+            .Produces(StatusCodes.Status400BadRequest)
             .Produces(StatusCodes.Status404NotFound)
             .Produces(StatusCodes.Status500InternalServerError);
         }

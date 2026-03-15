@@ -65,5 +65,11 @@ namespace Workflow.Infrastructure.Data.Repositories
         {
             await _context.SaveChangesAsync();
         }
+
+        public async Task UpdateAsunc(TasksEntity entity)
+        {
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
+            _context.Update(entity.ToModel());
+        }
     }
 }

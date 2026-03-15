@@ -21,3 +21,12 @@ Content-Type: application/json
   "StateCode": 1,
   "PriorityCode": 1
 }
+
+###
+PUT {{Workflow.Web.Api_HostAddress}}/api/tasks/59BDE736-0471-4BC3-A108-2A815B8AD5B6
+Content-Type: application/json
+
+{
+  "Name": "trabajar en api 2",
+  "Description": "hola"
+}
